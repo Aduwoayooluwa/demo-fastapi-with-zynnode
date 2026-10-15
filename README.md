@@ -12,13 +12,15 @@ python -m pip install -r requirements.txt
 uvicorn main:app --host 0.0.0.0 --port ${PORT:-8000}
 ```
 
-Starts with no environment variables set. Open http://localhost:8000/docs for
-interactive API documentation, or check http://localhost:8000/health.
+Starts with no environment variables set. Open http://localhost:8000/ to be
+redirected to the interactive Swagger UI at `/docs`, or check
+http://localhost:8000/health.
 
 ## Endpoints
 
 | Method | Path | Result |
 | --- | --- | --- |
+| GET | `/` | Redirect to Swagger UI at `/docs` (`307`) |
 | GET | `/health` | Status, version `1.0.0`, and environment |
 | GET | `/api/tasks` | List all tasks |
 | POST | `/api/tasks` | Create a task; returns `201` |
